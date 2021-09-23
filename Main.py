@@ -1,8 +1,3 @@
-#####################
-# bot name : hell_by_bot
-
-# Telegram Bot using "python-telegram-bot" library
-
 from telegram.ext.commandhandler import CommandHandler
 from telegram.ext.updater import Updater
 from telegram.ext.dispatcher import Dispatcher
@@ -56,9 +51,7 @@ def bop(update: Update, context: CallbackContext):
 
 def show_keyboard(update: Update, context: CallbackContext):
     global keyword,chat_id
-    #kbd_layout = [['ABOUT', 'IMAGE']]
-    #kbd = ReplyKeyboardMarkup(kbd_layout)
-    #update.message.reply_text(text="Select Options", reply_markup=kbd)
+  
 
     keyword = update.message.text
     chat_id = update.message.chat_id
@@ -100,9 +93,6 @@ def button(update, context):
         bot.send_photo(chat_id=chat_id, photo=url)
 
 
-
-#dispatcher.add_handler(MessageHandler(Filters.text, bop))
-#dispatcher.add_handler(MessageHandler(Filters.text,show_keyboard))
 updater.dispatcher.add_handler(MessageHandler(Filters.text, show_keyboard))
 updater.dispatcher.add_handler(CallbackQueryHandler(button))
 updater.start_polling()
